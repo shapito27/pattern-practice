@@ -60,7 +60,7 @@ class Singleton
      */
     public function setProperty(string $property, string $value)
     {
-        static::$entity->properties[$property] = $value;
+        $this->properties[$property] = $value;
     }
 
     /**
@@ -69,6 +69,6 @@ class Singleton
      */
     public function getProperty(string $property): string
     {
-        return static::$entity->properties[$property];
+        return $this->properties[$property];
     }
 }

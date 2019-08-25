@@ -12,7 +12,7 @@ class SingletonTest extends TestCase
         $this->assertInstanceOf(Singleton::class, $entity, 'Singleton::createEntity() return wrong object!');
     }
 
-    public function testSingletone()
+    public function testSingleton()
     {
         //create first object
         $entity1 = Singleton::createEntity();
@@ -23,5 +23,14 @@ class SingletonTest extends TestCase
         $entity2->setProperty('height', '30');
 
         $this->assertSame($entity1, $entity2, 'Objects are not same! Singletone return not same object.');
+    }
+
+    public function testSingletonLogicWorks()
+    {
+        $value = '150';
+        $entity = Singleton::createEntity();
+        $entity->setProperty('width', $value);
+
+        $this->assertEquals($value, $entity->getProperty('width'), 'Singleton set/get property work wrong');
     }
 }
